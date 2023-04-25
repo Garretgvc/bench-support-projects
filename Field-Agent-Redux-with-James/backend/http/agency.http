@@ -1,0 +1,23 @@
+@url = http://localhost:8080/api/agency
+
+GET {{url}} HTTP/1.1
+
+###
+
+GET {{url}}/1 HTTP/1.1
+
+###
+
+POST  {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "shortName": "CIA",
+    "longName": "Central Intelligence Agency",
+    "locations": [],
+    "agents": []
+}
+
+###
+
+DELETE {{url}}/2 HTTP/1.1

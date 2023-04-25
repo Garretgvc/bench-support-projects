@@ -1,0 +1,16 @@
+GET http://localhost:8080/api/location/2 HTTP/1.1
+
+###
+
+POST http://localhost:8080/api/location HTTP/1/1
+Content-Type: application/json
+
+{
+    //"name": "Safe House",
+    "address": "212 The Parkway",
+    "city": "Arkansaw",
+    "region": "WI",
+    "countryCode": "USA",
+    "postalCode": "55555",
+    "agencyId": 1
+}
