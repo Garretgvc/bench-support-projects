@@ -55,3 +55,20 @@ export function edit(record, url) {
         })
         .catch(console.log)
 }
+
+export function remove(url) {
+    const init = {
+        method: 'DELETE'
+    };
+    return fetch(url, init)
+    .then(response => {
+        if( response.status === 204) {
+            return {type: 'success'};
+        }else if (response.status === 404)  {
+            return {type: 'notfound'}
+        }else {
+            return Promise.reject(`Unexpected response status code: ${response.status}`);
+        }
+    })
+    .catch(console.log)
+}

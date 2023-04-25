@@ -10,6 +10,8 @@ import AgencyDetail from './components/AgencyDetail';
 import AddAgency from './components/AddAgency';
 import AddLocation from './components/AddLocation';
 import EditAgency from './components/EditAgency';
+import EditLocation from './components/EditLocation';
+import UnexpectedError from './components/UnexpectedError';
 
 function App() {
   return (
@@ -26,11 +28,13 @@ function App() {
             <Route index element={<AgencyDetail />} />
             <Route path='edit' element={<EditAgency/>}/>
             <Route path='addlocation' element={<AddLocation/>}/>
+            <Route path='editlocation/:locationId' element={<EditLocation/>}/>
           </Route>
           <Route path="add" element={<AddAgency/>}/>
         </Route>
         <Route path="/agents" element={<Agents />} />
         <Route path="/securityclearances" element={<SecurityClearances />} />
+        <Route path='/unexpectederror' element={<UnexpectedError/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

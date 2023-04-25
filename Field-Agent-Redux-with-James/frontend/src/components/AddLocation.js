@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Heading from "./Heading";
 import Form from "./Form";
+import { getAgency } from "../services/agencyService";
 import { addLocation } from "../services/locationServices";
 
 function AddLocation() {
@@ -9,10 +10,7 @@ function AddLocation() {
     const { agencyId } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:8080/api/agency/${agencyId}`)
-            .then(response => response.json())
-            .then(data => setAgency(data));
-
+        getAgency(agencyId).then(setAgency)
     }, [agencyId]);
 
     const handleSave = (values) => {
@@ -25,7 +23,7 @@ function AddLocation() {
     }
     return (
         <>
-            <Heading>{`Add Location to ${agency.longName} (${agency.shortName})`}</Heading>
+            <Heading>{`Add Location - ${agency.longName} (${agency.shortName})`}</Heading>
             <Form
                 fields={[
                     { name: 'name', label: 'Name' },

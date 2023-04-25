@@ -1,4 +1,5 @@
-import { add,edit } from "./serviceHelper";
+import { add, edit, remove } from "./serviceHelper";
+
 
 export function getAgencies() {
     return fetch('http://localhost:8080/api/agency')
@@ -15,5 +16,9 @@ export function addAgency(agency) {
 }
 
 export function editAgency(agency) {
-    return edit(agency, `http://localhost:8080/api/agency/${agency.agencyId}`, )
+    return edit(agency, `http://localhost:8080/api/agency/${agency.agencyId}`,)
+}
+
+export function deleteAgency(agencyId) {
+    return remove(`http://localhost:8080/api/agency/${agencyId}`)
 }
